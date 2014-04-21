@@ -1,0 +1,93 @@
+import "google/protobuf/descriptor.proto";
+package message;
+
+option java_package = "com.server.logic.message";
+option java_outer_classname = "Protocol";
+
+//登录模块
+message Login {
+  message LoginRequest{
+  	option(msgId) = 1000;
+    optional string userId = 2;
+  }
+
+  message LoginResponse{
+  	option(msgId) = 1001;
+    optional string userId = 2;
+    optional string playerId = 3;
+    optional string name = 4;
+    optional int32 level = 5;
+    optional int32 modelId = 6;
+    optional Pos pos = 7;
+    optional int32 sceneId = 8;
+  }
+}
+
+//角色模块
+message Role{
+	message SRoleAdd{
+	    option(msgId) = 2000;
+		optional string gameId = 2;
+		optional int32 type = 3;
+		optional int32 modelId = 4;
+  		optional string name = 5;
+  		optional int32 level = 6;
+  		optional Pos pos = 7;
+	}
+
+	message RoleMoveRequest{
+		option(msgId) = 2001;
+		optional string gameId = 2;
+	  	optional Pos pos = 3;
+	}
+
+	message SRoleMove{
+		option(msgId) = 2002;
+		optional string gameId = 2;
+		optional Pos pos = 3;
+	}
+
+	message SRoleRemove{
+		option(msgId) = 2003;
+		optional string gameId = 2;
+	}
+}
+
+//地图模块
+message Map{
+	message EnterSceneRequest{
+		option(msgId) = 3000;
+		optional int32 sceneId = 2;
+	}
+
+	message EnterSceneResPonse{
+		option(msgId) = 3001;
+		optional Pos pos = 2;
+	}
+
+	//地图加载(过图中不发送数据，加载完成再发送数据)
+	message LoadComplete{
+		option(msgId) = 3002;
+	}
+}
+
+message Pos{
+	optional int32 col = 2;
+	optional int32 row = 3;
+}
+
+extend google.protobuf.MessageOptions {
+  optional int32 msgId = 51234;
+}
+
+message Fight{
+	message Attack{
+		option(msgId) = 4011;
+		optional string id = 2;
+	}
+	message SGameObjHpData{
+		option(msgId) = 4012;
+		optional string id = 2;
+		optional int32 hp = 3;
+	}
+}

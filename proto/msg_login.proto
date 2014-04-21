@@ -1,0 +1,25 @@
+import "msg.proto";
+package com.server.message.protocol;
+
+//登录模块
+message LoginRequest {
+	extend Message {
+		optional LoginRequest loginRequest = 1001;
+	}
+	option (msgId) = 1001;
+	optional string userId = 1;
+}
+
+message LoginResponse {
+	extend Message {
+		optional LoginResponse loginResponse = 1002;
+	}
+	option (msgId) = 1002;
+	optional string userId = 1;
+	optional string playerId = 2;
+	optional string name = 3;
+	optional int32 level = 4;
+	optional int32 modelId = 5;
+	optional Pos pos = 6;
+	optional int32 sceneId = 7;
+}

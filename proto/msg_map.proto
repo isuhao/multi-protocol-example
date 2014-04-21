@@ -1,0 +1,21 @@
+import "msg.proto";
+package com.server.message.protocol;
+
+//地图模块
+message EnterSceneRequest {
+	extend Message {
+		optional EnterSceneRequest enterSceneRequest = 1101;
+	}
+
+	option (msgId) = 1101;
+	optional int32 sceneId = 2;
+}
+
+message EnterSceneResPonse {
+	extend Message {
+		optional EnterSceneResPonse EnterSceneResPonse = 1102;
+	}
+
+	option (msgId) = 1102;
+	optional Pos pos = 2;
+}

@@ -1,0 +1,37 @@
+import "msg.proto";
+package com.server.message.protocol;
+
+extend Message {
+	optional Role role = 101;
+}
+
+//角色模块
+message Role {
+	message SRoleAdd {
+		option (msgId) = 2000;
+		optional string gameId = 2;
+		optional int32 type = 3;
+		optional int32 modelId = 4;
+		optional string name = 5;
+		optional int32 level = 6;
+		optional Pos pos = 7;
+	}
+
+	message RoleMoveRequest {
+		option (msgId) = 2001;
+		optional string gameId = 2;
+		optional Pos pos = 3;
+	}
+
+	message SRoleMove {
+		option (msgId) = 2002;
+		optional string gameId = 2;
+		optional Pos pos = 3;
+	}
+
+	message SRoleRemove {
+		option (msgId) = 2003;
+		optional string gameId = 2;
+	}
+
+}

@@ -1,0 +1,27 @@
+import "google/protobuf/descriptor.proto";
+package com.server.protobuf.protocol;
+
+message Message {
+	optional int32 msgId = 1;
+	extensions 100 to 999;
+}
+
+extend google.protobuf.MessageOptions {
+	optional int32 msgId = 51234;
+}
+
+//测试模块
+message Test {
+	extend Message {
+		optional int32 bar = 100;
+	}
+}
+
+//登录模块
+message Login {
+	extend Message {
+		optional Login login = 101;
+	}
+	option (msgId) = 1000;
+	optional string userId = 1;
+}

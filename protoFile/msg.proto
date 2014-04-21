@@ -1,0 +1,16 @@
+import "google/protobuf/descriptor.proto";
+package com.server.message.protocol;
+
+message Message {
+	optional string msgId = 1;
+	extensions 100 to 10000;
+}
+
+extend google.protobuf.MessageOptions {
+	optional int32 msgId = 51234;
+}
+
+message Pos{
+	optional int32 col = 2;
+	optional int32 row = 3;
+}

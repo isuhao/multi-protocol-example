@@ -1,0 +1,9 @@
+import "msg.proto";
+package com.server.message.protocol;
+
+//测试模块
+message Test {
+	extend Message {
+		optional int32 bar = 1000;
+	}
+}
