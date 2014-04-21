@@ -1,5 +1,5 @@
 import "msg.proto";
-package com.server.message.protocol;
+package com.server.msg.protocol;
 
 extend Message {
 	optional Login login = 100;
@@ -7,6 +7,8 @@ extend Message {
 
 //登录模块
 message Login {
+	optional LoginRequest loginRequest = 1;
+	optional LoginResponse loginResponse = 2;
 	message LoginRequest {
 		option (msgId) = 1000;
 		optional string userId = 2;

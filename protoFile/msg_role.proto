@@ -1,5 +1,5 @@
 import "msg.proto";
-package com.server.message.protocol;
+package com.server.msg.protocol;
 
 extend Message {
 	optional Role role = 101;
@@ -7,6 +7,10 @@ extend Message {
 
 //角色模块
 message Role {
+	optional SRoleAdd sRoleAdd = 1;
+	optional RoleMoveRequest roleMoveRequest = 2;
+	optional SRoleMove sRoleMove = 3;
+	optional SRoleRemove sRoleRemove = 4;
 	message SRoleAdd {
 		option (msgId) = 2000;
 		optional string gameId = 2;

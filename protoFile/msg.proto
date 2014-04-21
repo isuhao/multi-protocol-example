@@ -1,5 +1,5 @@
 import "google/protobuf/descriptor.proto";
-package com.server.message.protocol;
+package com.server.msg.protocol;
 
 message Message {
 	optional string msgId = 1;

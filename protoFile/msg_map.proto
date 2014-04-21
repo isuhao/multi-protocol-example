@@ -1,11 +1,14 @@
 import "msg.proto";
-package com.server.message.protocol;
+package com.server.msg.protocol;
 
 extend Message {
 	optional Map map = 102;
 }
 //地图模块
 message Map {
+	optional EnterSceneRequest enterSceneRequest = 1;
+	optional EnterSceneResPonse enterSceneResPonse = 2;
+	optional LoadComplete loadComplete = 3;
 	message EnterSceneRequest {
 		option (msgId) = 3000;
 		optional int32 sceneId = 2;
